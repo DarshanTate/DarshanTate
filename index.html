@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshan Tate | Full-Stack Developer</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Font: Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Custom styles to extend Tailwind */
+        body {
+            font-family: 'Fira Code', monospace;
+            background-color: #0D1117; /* Terminal background */
+            color: #C9D1D9; /* Light text */
+        }
+        .hacker-green {
+            color: #20C20E;
+        }
+        .card {
+            background-color: #161B22; /* Card background */
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+        .highlight {
+            color: #20C20E;
+            font-weight: bold;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: #20C20E;
+        }
+        /* Blinking cursor for the typewriter effect */
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 2.5rem; /* Match font size */
+            background-color: #20C20E;
+            margin-left: 8px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="container mx-auto max-w-4xl">
+
+        <!-- Header -->
+        <header class="text-center py-8">
+            <div class="typing-container min-h-[100px] flex items-center justify-center">
+                <h1 id="typing-text" class="text-2xl md:text-4xl font-semibold hacker-green"></h1>
+                <div class="typing-cursor"></div>
+            </div>
+            <div class="mt-4 text-gray-400">
+                <i class="fas fa-eye"></i> Profile Views: <span id="viewCount">Loading...</span>
+            </div>
+        </header>
+
+        <!-- Divider -->
+        <div class="h-1 bg-gradient-to-r from-transparent via-green-500 to-transparent my-8"></div>
+
+        <!-- About Section -->
+        <section class="card p-6 mb-8">
+            <h2 class="section-title relative inline-block text-2xl font-bold mb-4 hacker-green">🚀 About Me</h2>
+            <div class="text-lg space-y-2">
+                <p>Final-year <span class="highlight">Electronics & Communication Engineering</span> student at IIIT Nagpur.</p>
+                <p><span class="highlight">IoT Enthusiast</span> | <span class="highlight">Full-Stack Developer</span> | <span class="highlight">AI Solutions Builder</span></p>
+                <p>Passionate about creating innovative solutions that bridge hardware and software. Experienced in developing end-to-end systems from embedded devices to cloud platforms.</p>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="card p-6 mb-8">
+            <h2 class="section-title relative inline-block text-2xl font-bold mb-4 hacker-green">🛠 Tech Stack</h2>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 text-center">
+                <!-- Using Font Awesome icons. Replaced non-existent icons. -->
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fab fa-cuttlefish text-4xl mb-2 hacker-green"></i> <p>C++</p> </div>
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fab fa-python text-4xl mb-2 hacker-green"></i> <p>Python</p> </div>
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fab fa-js text-4xl mb-2 hacker-green"></i> <p>JavaScript</p> </div>
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fab fa-react text-4xl mb-2 hacker-green"></i> <p>React</p> </div>
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fab fa-node-js text-4xl mb-2 hacker-green"></i> <p>Node.js</p> </div>
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fas fa-database text-4xl mb-2 hacker-green"></i> <p>MongoDB</p> </div>
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fas fa-database text-4xl mb-2 hacker-green"></i> <p>MySQL</p> </div>
+                <div class="p-4 bg-gray-800 rounded-lg transition-transform hover:scale-110"> <i class="fab fa-docker text-4xl mb-2 hacker-green"></i> <p>Docker</p> </div>
+            </div>
+        </section>
+
+        <!-- GitHub Stats Section -->
+        <section class="card p-6 mb-8">
+            <h2 class="section-title relative inline-block text-2xl font-bold mb-4 hacker-green">📊 GitHub Analytics</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Repo, Stars, Forks -->
+                <div class="card p-4 text-center bg-gray-800">
+                    <h3 class="text-xl font-semibold text-gray-300 mb-4">Repository Stats</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="text-4xl font-bold hacker-green" id="repoCount">0</div>
+                            <div class="text-gray-400">Public Repos</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold hacker-green" id="starCount">0</div>
+                            <div class="text-gray-400">Total Stars</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-bold hacker-green" id="forkCount">0</div>
+                            <div class="text-gray-400">Total Forks</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Language Distribution Chart -->
+                <div class="card p-4 md:col-span-2 bg-gray-800">
+                    <h3 class="text-xl font-semibold text-gray-300 mb-4 text-center">Language Distribution</h3>
+                    <div class="h-64 md:h-80"><canvas id="languageChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="card p-6 mb-8">
+            <h2 class="section-title relative inline-block text-2xl font-bold mb-4 hacker-green">📫 Let's Connect</h2>
+            <div class="flex flex-wrap justify-center gap-4 mt-4">
+                <a href="https://www.linkedin.com/in/darshantate/" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-green-800 transition-colors"> <i class="fab fa-linkedin hacker-green"></i> LinkedIn </a>
+                <a href="mailto:darshantate36@gmail.com" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-green-800 transition-colors"> <i class="fas fa-envelope hacker-green"></i> Email </a>
+                <a href="https://leetcode.com/u/DarshanTate/" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-green-800 transition-colors"> <i class="fas fa-code hacker-green"></i> LeetCode </a>
+                <a href="https://github.com/darshantate" target="_blank" class="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg hover:bg-green-800 transition-colors"> <i class="fab fa-github hacker-green"></i> GitHub </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 text-gray-500 border-t border-gray-700">
+            <p>Made with ❤️ and <span class="highlight">code</span> | © <span id="currentYear"></span> Darshan Tate</p>
+            <p>Last updated: <span id="currentDate"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- DYNAMIC DATA AND EFFECTS ---
+
+            // 1. Set current date and year
+            const now = new Date();
+            document.getElementById('currentYear').textContent = now.getFullYear();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            // 2. Typewriter Effect
+            const typingElement = document.getElementById('typing-text');
+            const lines = [
+                "Hi there 👋, I'm Darshan Tate",
+                "A Full-Stack Developer",
+                "An IoT Enthusiast",
+                "And a Problem Solver"
+            ];
+            let lineIndex = 0;
+            let charIndex = 0;
+
+            function type() {
+                if (lineIndex < lines.length) {
+                    if (charIndex < lines[lineIndex].length) {
+                        typingElement.textContent += lines[lineIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(type, 60);
+                    } else {
+                        setTimeout(erase, 2000); // Wait before erasing
+                    }
+                }
+            }
+
+            function erase() {
+                if (charIndex > 0) {
+                    typingElement.textContent = lines[lineIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, 30);
+                } else {
+                    lineIndex = (lineIndex + 1) % lines.length; // Loop back to the start
+                    setTimeout(type, 500); // Wait before typing next line
+                }
+            }
+            
+            type(); // Start the effect
+
+            // 3. GitHub API Fetch for Stats
+            const GITHUB_USERNAME = 'darshantate';
+            async function getGitHubStats() {
+                try {
+                    // Fetch user data for public repo count
+                    const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+                    if (!userResponse.ok) throw new Error('User not found');
+                    const userData = await userResponse.json();
+                    document.getElementById('repoCount').textContent = userData.public_repos || 0;
+
+                    // Fetch all repos to calculate total stars and forks
+                    const repoResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`);
+                    if (!repoResponse.ok) throw new Error('Repos not found');
+                    const repoData = await repoResponse.json();
+
+                    const totalStars = repoData.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+                    const totalForks = repoData.reduce((acc, repo) => acc + repo.forks_count, 0);
+
+                    document.getElementById('starCount').textContent = totalStars;
+                    document.getElementById('forkCount').textContent = totalForks;
+
+                } catch (error) {
+                    console.error('Error fetching GitHub stats:', error);
+                    // Display 'N/A' if API fails
+                    ['repoCount', 'starCount', 'forkCount'].forEach(id => document.getElementById(id).textContent = 'N/A');
+                }
+            }
+
+            getGitHubStats();
+
+            // 4. View Counter (Using a third-party service like goatcounter or a simple placeholder)
+            // A real-time view counter requires a backend. This is a placeholder.
+            // For a simple, free, and privacy-friendly counter, check out services like GoatCounter.
+            document.getElementById('viewCount').textContent = "1,337"; // Placeholder value
+
+            // 5. Chart.js Language Chart
+            // NOTE: Fetching language data for all repos requires many API calls. 
+            // It's better to pre-calculate this or use a GitHub Action to update it periodically.
+            // For this example, we'll use static data.
+            const languageCtx = document.getElementById('languageChart').getContext('2d');
+            new Chart(languageCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['JavaScript', 'Python', 'C++', 'HTML/CSS', 'Java', 'Other'],
+                    datasets: [{
+                        data: [35, 25, 15, 12, 8, 5],
+                        backgroundColor: ['#F7DF1E', '#3776AB', '#00599C', '#E34F26', '#B07219', '#8B949E'],
+                        borderColor: '#161B22',
+                        borderWidth: 4,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: '#C9D1D9',
+                                font: { size: 14, family: 'Fira Code' },
+                                padding: 20
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
