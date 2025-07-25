@@ -78,11 +78,6 @@
   <img src="https://github-profile-trophy.vercel.app/?username=darshantate&theme=darkhub&column=4&no-frame=true&margin-w=10" alt="Darshan GitHub Trophies" />
 </p>
 
-<!-- 3D GitHub Contribution -->
-<h2 align="center">🎮 GitHub Contribution Map</h2>
-<p align="center">
-  <img src="https://github-readme-3d-contrib.vercel.app/api?username=darshantate&theme=matrix" width="90%" alt="3D Contribution Map" />
-</p>
 
 <!-- Contact Section -->
 <h2 align="center">📫 Let's Connect</h2>
